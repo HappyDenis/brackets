@@ -1,0 +1,68 @@
+function check(str, bracketsConfig) {
+//var copy1 = [];
+  let str1 = str;
+ //check('[(])', config2
+bracketsConfig.forEach(function(item,index){
+ // copy1.push(item)
+ // console.log(copy1[index]);
+ console.log(item);
+  
+  // console.log(item[1]);
+ for (let i=0; i<str1.length; i++) {
+    if (str1[i] == item[1]) {           //тип string
+    console.log('OK1: '+str1[i])
+    console.log(str1);
+      console.log('i= '+ i);
+      let j = i-1;
+        while (j >=0) {
+        console.log('j= '+ j);
+          if (str1[j] == item[0]) {
+          str1= str1.slice(0,j)+str1.slice(j+1,i)+str1.slice(i+1);
+            console.log(str1);
+            console.log('str1.length= ' +str1.length);
+            console.log(j);
+ if ( str1.length == 2 && (str1[0] == item[0]) && (str1[1] ==item[1])) {
+              str1 = '';
+              }      
+            i--;
+            break;
+          }
+        j--;  
+        }
+    }
+ //  console.log(str1);
+
+ }
+    // console.log(str1[i]+' str[i]');
+   //  console.log(item[1]+' item[1]');
+ //console.log(!str1);
+   // console.log(str.hasOwnProperty(item));
+})
+console.log(!str1);
+}
+const config1 = [['(', ')']];
+const config2 = [['(', ')'], ['[', ']']];
+const config3 = [['(', ')'], ['[', ']'], ['{', '}']];
+const config4 = [['|', '|']];
+const config5 = [['(', ')'], ['|', '|']];
+const config6 = [['1', '2'], ['3', '4'], ['5', '6'], ['7', '7'], ['8', '8']];
+const config7 = [['(', ')'], ['[', ']'], ['{', '}'], ['|', '|']];
+//console.log(check('[()])', config2));
+//console.log(check('[]()', config2)); //, true);
+//console.log(check('[]()(', config2)); //), false);*/
+//console.log(check('((()))()', config1));//, true); //2йтест
+console.log(check('[(])', config2)); //5 false);
+//console.log(check('|(|)', config5)); //10 false); 
+//console.log(check('|()|(||)||', config5));//, true));
+//console.log(check('111115611111111222288888822225577877778775555666677777777776622222', config6)); //12 true);
+//console.log(check('111115611111111156111111112222888888222255778777787755556666777777777766222221111222288888822225577877778775555666677777777776622222', config6)); //15 true
+//console.log(check('([[[[(({{{}}}(([](((((((())))||||||))))[[{{|{{}}|}}[[[[]]]]{{{{{}}}}}]]))))]]]]))()', config7)); //18 false
+//console.log(check('([[[[(({{{}}}(([](((((((())))||||||))))[[{{|{{}}|}}[[[[]]]]{{{{{}}}}}]]))))]]]])(())', config7)); //19 true
+//console.log(check('([[[[(({{{}}}(([](((((((())))||||||))))[[{{|{{}}|}}[[[[]]]]{{{{{}}}}}]]))))]]]])((([[[[(({{{}}}(([](((((((())))||||||))))[[{{|{{}}|}}[[[[]]]]{{{{{}}}}}]]))))]]]])))', config7));//20 true   
+/*
+const items = ['item1', 'item2', 'item3']
+const copy = []
+// после
+items.forEach(function(item){
+  copy.push(item)
+})*/
